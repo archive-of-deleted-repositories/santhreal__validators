@@ -43,6 +43,8 @@ def test_returns_true_on_valid_ru_inn(value: str):
         ("774334078054",),
         # both control numbers <= 9: nested ternary only checked the last digit
         ("000000000018",),
+        # first control > 9: nested ternary skipped the second control entirely
+        ("000000000400",),
     ],
 )
 def test_returns_false_on_valid_ru_inn(value: str):
