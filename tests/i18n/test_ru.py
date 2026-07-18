@@ -41,8 +41,12 @@ def test_returns_true_on_valid_ru_inn(value: str):
         ("7707012149",),
         ("140700989886",),
         ("774334078054",),
+        # regression: first control fails while second alone would match
+        ("000000000018",),
+        # first control > 9: nested ternary skipped the second control entirely
+        ("000000000400",),
     ],
 )
-def test_returns_false_on_valid_ru_inn(value: str):
+def test_returns_false_on_invalid_ru_inn(value: str):
     """Test returns true on valid russian individual tax number."""
     assert isinstance(ru_inn(value), ValidationError)
