@@ -43,7 +43,6 @@ def test_returns_true_on_valid_ru_inn(value: str):
         ("774334078054",),
         # regression: first control fails while second alone would match
         ("000000000018",),
-        # first control > 9: nested ternary skipped the second control entirely
         ("000000000400",),
     ],
 )
